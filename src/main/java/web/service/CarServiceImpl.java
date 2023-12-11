@@ -1,19 +1,17 @@
 package web.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
+@Service
 public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> getAllCars() {
-        List<Car> carList;
+        List<Car> carList = new ArrayList<>();
         {
-            carList = new ArrayList<>();
-
             carList.add(new Car("Toyota", 2020, "Red"));
             carList.add(new Car("Mazda", 2015, "Silver"));
             carList.add(new Car("Ford", 2018, "Black"));
@@ -23,9 +21,12 @@ public class CarServiceImpl implements CarService {
         return carList;
     }
     @Override
-    public List<Car> getSpecifiedNumberOfCars(List<Car> carList,int number) {
-        if (number <= 0 || number > carList.size()) {
-            throw new IllegalArgumentException("Выход за границы списка машин");
+    public List<Car> getSpecifiedNumberOfCars(List<Car> carList, int number) {
+        if (number <= 0) {
+            return new ArrayList<Car>();
+        }
+        if (number >= carList.size()) {
+            return carList;
         }
         return carList.subList(0, number);
     }
