@@ -4,6 +4,10 @@ public class Car {
     private String model;
     private int year;
     private String color;
+
+    public Car(String toyota, int i, String red) {
+    }
+
     public String getModel() {
         return model;
     }

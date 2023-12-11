@@ -5,6 +5,8 @@ import web.model.Car;
 import java.util.List;
 
 public interface CarService {
-    void printCarList(List<Car> carList);
+    default List<Car> getAllCars() {
+        return null;
+    }
     List<Car> getSpecifiedNumberOfCars(List<Car> carList, int number);
 }
