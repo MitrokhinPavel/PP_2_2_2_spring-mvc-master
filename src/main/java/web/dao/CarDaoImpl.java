@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public class CarDaoImpl implements CarDao {
-
     @Override
     public List<Car> getAllCars() {
         List<Car> carList = new ArrayList<>();
